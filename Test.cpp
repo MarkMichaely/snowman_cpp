@@ -12,6 +12,7 @@
 #include "snowman.hpp"
 using namespace ariel;
 
+//#include <boost/algorithm/string.hpp>
 #include <string>
 #include <algorithm>
 using namespace std;
@@ -21,16 +22,20 @@ using namespace std;
  * Requires std=c++2a.
  */
 string nospaces(string input) {
-	std::erase(input, ' ');
-	std::erase(input, '\t');
-	std::erase(input, '\n');
-	std::erase(input, '\r');
+	input.erase(std::remove(input.begin(),input.end(), ' '),input.end());
+    input.erase(std::remove(input.begin(),input.end(), '\t'),input.end());
+    input.erase(std::remove(input.begin(),input.end(), '\n'),input.end());
+    input.erase(std::remove(input.begin(),input.end(), '\r'),input.end());
+    // std::erase(input, ' ');
+	// std::erase(input, '\t');
+	// std::erase(input, '\n');
+	// std::erase(input, '\r');
 	return input;
 }
 
 /**
  * The following test cases will be for good snowman input, 
- * checking every possible body part 
+ * checking every possible body part    
  * so one can be sure it could be correctly created.
  */
 

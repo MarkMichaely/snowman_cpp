@@ -11,9 +11,10 @@
  * Since : 2021-03
  */
 
-#include <stddef.h>
+
 #include <iostream>
 #include <array>
+#include <string>
 #include <string>
 
 #include "snowman.hpp"
@@ -64,9 +65,10 @@ int charToDigit (char c){
 
 namespace ariel{
     string snowman(int num){
-        std::string tmp = to_string(num);
-        if (tmp.size() != valid_num_len) throw out_of_range {"num should be exacaly 8 digits"};
-        char const *snow_man = tmp.c_str();
+        std::string snow_man = to_string(num);
+        if (snow_man.size() != valid_num_len) {
+        throw out_of_range {"num should be exacaly 8 digits"};
+        }
         std::string answer =string();
         
         try
